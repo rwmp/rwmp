@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+    <name>RWMP</name>
+    <author>Emiel Tasseel</author>
+    <targetVersion>0.14.1234</targetVersion>
+    <description>Multiplayer mod for RimWorld.</description>
+</ModMetaData>

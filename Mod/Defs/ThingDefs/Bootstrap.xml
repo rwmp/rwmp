@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+    <ThingDef>
+        <defName>RWMP</defName>
+        <label>RWMP_Bootstrap</label>
+        <menuHidden>true</menuHidden>
+        <thingClass>RWMP.Bootstrap.Bootstrap</thingClass>
+        <inspectorTabs>
+            <li>RWMP.Bootstrap.Bootstrap</li>
+        </inspectorTabs>
+    </ThingDef>
+</ThingDefs>
