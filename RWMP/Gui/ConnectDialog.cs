@@ -5,16 +5,16 @@ namespace RWMP.Gui
 {
     public class ConnectDialog : Window
     {
-        public override Vector2 InitialSize => new Vector2(480f, 300f);
+        private string _host = "";
+        private string _portString = "";
+        private int _port = 25000;
 
         public ConnectDialog()
         {
             doCloseX = true;
         }
 
-        private string _host = "";
-        private string _portString = "";
-        private int _port = 25000;
+        public override Vector2 InitialSize => new Vector2(480f, 300f);
 
         public override void DoWindowContents(Rect bounds)
         {

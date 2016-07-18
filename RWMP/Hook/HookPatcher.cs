@@ -10,20 +10,25 @@ using Debug = System.Diagnostics.Debug;
 
 namespace RWMP.Hook
 {
-    public static class HookPatcher
+    public class HookPatcher
     {
-        private static int _progress;
-        private static int _progressTotal = 100;
+        private readonly Thread _patchingThread;
 
-        private static readonly Thread PatchingThread = new Thread(DoPatch);
+        private int _progress;
+        private int _progressTotal = 100;
 
-        public static void Patch()
+        public HookPatcher()
         {
-            IsPatching = true;
-            PatchingThread.Start();
+            _patchingThread = new Thread(DoPatch);
         }
 
-        private static void DoPatch()
+        public void Patch()
+        {
+            IsPatching = true;
+            _patchingThread.Start();
+        }
+
+        private void DoPatch()
         {
             ProgressText = "Opening rwmp assembly...";
             var rwmpAssembly = AssemblyDefinition.ReadAssembly("Mods/RWMP/Assemblies/RWMP.dll");
@@ -101,12 +106,12 @@ namespace RWMP.Hook
             ProgressText = "Done, please restart RimWorld!";
         }
 
-        public static bool IsPatching { get; private set; }
+        public bool IsPatching { get; private set; }
 
-        public static bool Done { get; private set; }
+        public bool Done { get; private set; }
 
-        public static float Progress => (float) _progress / _progressTotal;
+        public float Progress => (float) _progress / _progressTotal;
 
-        public static string ProgressText { get; private set; } = "Loading...";
+        public string ProgressText { get; private set; } = "Loading...";
     }
 }

@@ -14,10 +14,12 @@ namespace RWMP.Gui
         protected override void DoFileInteraction(string mapName)
         {
             PreLoadUtility.CheckVersionAndLoad(GenFilePaths.FilePathForSavedGame(mapName),
-                ScribeMetaHeaderUtility.ScribeHeaderMode.Map, delegate
+                ScribeMetaHeaderUtility.ScribeHeaderMode.Map, () =>
                 {
-                    Action preLoadLevelAction =
-                        delegate { Current.Game = new Game {InitData = new GameInitData {mapToLoad = mapName}}; };
+                    Action preLoadLevelAction = () =>
+                    {
+                        Current.Game = new Game { InitData = new GameInitData { mapToLoad = mapName } };
+                    };
                     LongEventHandler.QueueLongEvent(preLoadLevelAction, "Map", "LoadingLongEvent", true, null);
                 });
         }

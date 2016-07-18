@@ -2,7 +2,7 @@
 
 namespace RWMP.Hook
 {
-    public class HookSystem
+    public static class HookSystem
     {
         public static bool IsInstalled { get; set; }
 

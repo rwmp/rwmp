@@ -3,7 +3,7 @@ using Verse;
 
 namespace RWMP.Util
 {
-    public class ModUtil
+    public static class ModUtil
     {
         public static string Name => "RWMP";
 

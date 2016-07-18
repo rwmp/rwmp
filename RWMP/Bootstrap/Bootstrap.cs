@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using JetBrains.Annotations;
+using UnityEngine;
 using Verse;
 
 namespace RWMP.Bootstrap
 {
+    [UsedImplicitly]
     public class Bootstrap : ITab
     {
         private GameObject _gameObject;

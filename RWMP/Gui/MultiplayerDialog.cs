@@ -10,7 +10,6 @@ namespace RWMP.Gui
     {
         private readonly List<Tuple<string, Func<Window>>> _items = new List<Tuple<string, Func<Window>>>();
 
-
         public MultiplayerDialog()
         {
             doCloseButton = true;

@@ -6,16 +6,15 @@ namespace RWMP.Gui
 {
     public class ServerBrowserDialog : Window
     {
+        private readonly List<HostData> _servers = new List<HostData>();
+        private Vector2 _scrollPosition;
+
         public ServerBrowserDialog()
         {
             doCloseX = true;
         }
 
         public override Vector2 InitialSize => new Vector2(1020f, 764f);
-
-        private readonly List<HostData> _servers = new List<HostData>();
-
-        private Vector2 _scrollPosition;
 
         public override void WindowUpdate()
         {
@@ -31,7 +30,6 @@ namespace RWMP.Gui
             Widgets.Label(new Rect(0f, 0f, bounds.width, 80), "Server Browser");
             Text.Font = GameFont.Small;
 
-
             var listViewWidth = bounds.width - 8 * 2;
             var listViewHeight = bounds.height - 80 - 8 - 32 - 8;
 
@@ -44,7 +42,6 @@ namespace RWMP.Gui
             {
                 listHeight = listViewHeight + 1;
             }
-
 
             Widgets.BeginScrollView(new Rect(8, 80, listViewWidth, listViewHeight), ref _scrollPosition,
                 new Rect(0, 0, listWidth, listHeight));
